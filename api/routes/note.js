@@ -15,6 +15,7 @@ router.get('/notes', (req, res, next) => {
         _id: note._id,
         title: note.title,
         text: note.text,
+        updatedAt: note.updatedAt,
         details: {
           method: 'GET',
           url: `${req.protocol}://${req.hostname}:3000/api/notes/${note._id}`

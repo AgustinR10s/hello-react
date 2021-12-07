@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Note = ({ id, initialTitle, initialText, removeNote, updateNote }) => {
+const Note = ({ updatedAt, id, initialTitle, initialText, removeNote, updateNote }) => {
 
   // note title state
   const [title, setTitle] = useState(initialTitle);
@@ -30,6 +30,11 @@ const Note = ({ id, initialTitle, initialText, removeNote, updateNote }) => {
     border: 'none'
   };
 
+  console.log(updatedAt);
+  let d = new Date(updatedAt);
+  console.log(d);
+  console.log(typeof d);
+
   // render JSX
   return (
     <div className="card">
@@ -54,6 +59,8 @@ const Note = ({ id, initialTitle, initialText, removeNote, updateNote }) => {
         </textarea>
         <br />
 
+        <p>Ultima modificacion {d.toLocaleDateString('es-AR')}</p>
+        <br />
         <button className="btn" hidden={editable} onClick={() => setEditable(!editable)}>
           <i className="text-secondary fa fa-pencil fa-lg"></i>
         </button>
